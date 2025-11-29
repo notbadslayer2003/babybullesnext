@@ -32,7 +32,7 @@ export default function Header() {
                         <div className="max-w-2xl opacity-0 animate-[fadeInUp_1.2s_ease_0.3s_forwards]">
 
                             {/* Badge subtil */}
-                            <span className="inline-flex items-center gap-2 px-5 py-2 bg-white/5 backdrop-blur-sm border border-white/10 text-white/80 font-['Karla'] text-[0.7rem] tracking-[0.25em] uppercase rounded-full mb-8">
+                            <span className="hidden md:inline-flex items-center gap-2 px-5 py-2 bg-white/5 backdrop-blur-sm border border-white/10 text-white/80 font-['Karla'] text-[0.7rem] tracking-[0.25em] uppercase rounded-full mb-8">
                                 <span className="w-1.5 h-1.5 bg-[#d4b5a0] rounded-full animate-pulse" />
                                 Spa bien-être pour bébés
                             </span>
@@ -56,7 +56,7 @@ export default function Header() {
                             </p>
 
                             {/* Boutons CTA */}
-                            <div className="flex flex-col sm:flex-row gap-4">
+                            <div className="hidden md:flex flex-col sm:flex-row gap-4">
                                 <Link
                                     href="/services"
                                     className="group relative inline-flex items-center justify-center px-8 py-4 bg-[#d4b5a0] text-white font-['Karla'] text-sm tracking-[0.08em] uppercase overflow-hidden transition-all duration-500 hover:bg-[#c5a591] hover:shadow-2xl hover:shadow-[#d4b5a0]/30 hover:-translate-y-0.5"
@@ -77,7 +77,7 @@ export default function Header() {
                 </div>
 
                 {/* Scroll indicator élégant */}
-                <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3 opacity-0 animate-[fadeIn_1.5s_ease_1s_forwards]">
+                <div className="hidden md:absolute bottom-10 left-1/2 -translate-x-1/2 md:flex flex-col items-center gap-3 opacity-0 animate-[fadeIn_1.5s_ease_1s_forwards]">
                     <span className="font-['Karla'] text-[0.65rem] tracking-[0.3em] uppercase text-white/40">
                         Scroll
                     </span>
