@@ -16,6 +16,7 @@ interface Service {
     categorie: string;
     pourQui: string; // "Bébé" | "Maman" | "Parent-Bébé"
     dureeMinutes: number;
+    reservationId: string;
 }
 
 export default function Services() {
@@ -28,176 +29,181 @@ export default function Services() {
     const [filtersOpen, setFiltersOpen] = useState(false);
 
     const services: Service[] = [
+        // Services Maman
         {
             id: 1,
-            nom: "Bain Bébé Relaxant",
-            description: "Un moment de détente aquatique dans une eau à température idéale, favorisant l'éveil sensoriel.",
-            fullDescription: "Le bain bébé est bien plus qu'un simple moment d'hygiène. C'est une véritable séance de relaxation et d'éveil sensoriel. Dans notre bassin adapté avec jets et bulles douces, votre bébé retrouve les sensations apaisantes du liquide amniotique. L'eau chauffée à 37°C permet une détente musculaire profonde tout en stimulant les sens de votre enfant.",
-            duree: "30 min",
-            age: "0-12 mois",
+            nom: "Réflexologie Plantaire",
+            description: "Offrez-vous une parenthèse de douceur grâce à la réflexologie plantaire.",
+            fullDescription: "Des pressions ciblées aident à relâcher le stress, harmoniser les énergies et favoriser l'équilibre intérieur pour une détente profonde et durable.",
+            duree: "45 min",
+            age: "Adulte",
             benefices: [
-                "Relaxation et apaisement profond",
-                "Stimulation sensorielle et motrice",
-                "Amélioration du sommeil",
-                "Renforcement du système immunitaire",
-                "Moment de complicité parent-bébé"
+                "Relâchement du stress",
+                "Harmonisation des énergies",
+                "Équilibre intérieur",
+                "Détente profonde et durable"
             ],
-            image: "/service-bain.jpg",
-            categorie: "Hydrothérapie",
-            pourQui: "Bébé",
-            dureeMinutes: 30
+            image: "imgServiceMaman1.jpg",
+            categorie: "Réflexologie",
+            pourQui: "Maman",
+            dureeMinutes: 45,
+            reservationId: "refm"
         },
         {
             id: 2,
-            nom: "Massage Bien-être",
-            description: "Des gestes doux et enveloppants pour apaiser, détendre et renforcer le lien d'attachement.",
-            fullDescription: "Le massage bébé est une pratique ancestrale aux multiples bienfaits. Nos praticiens certifiés utilisent des techniques douces adaptées à l'âge et aux besoins de votre bébé. Huiles naturelles bio, ambiance apaisante, et gestes experts pour un moment de pure détente. Chaque séance est personnalisée pour répondre aux besoins spécifiques de votre enfant.",
-            duree: "45 min",
-            age: "2 semaines - 12 mois",
+            nom: "Massage Femme Enceinte",
+            description: "Un massage spécialement adapté à la grossesse pour soulager les tensions.",
+            fullDescription: "Un massage spécialement adapté à la grossesse pour soulager les tensions, alléger les jambes et favoriser l'apaisement. Un moment de confort qui accompagne sereinement maman et bébé.",
+            duree: "60 min",
+            age: "Grossesse",
             benefices: [
-                "Soulagement des coliques et tensions",
-                "Amélioration de la digestion",
-                "Stimulation de la circulation sanguine",
-                "Apaisement et réduction du stress",
-                "Renforcement du lien parent-enfant"
+                "Soulagement des tensions",
+                "Allègement des jambes",
+                "Apaisement profond",
+                "Accompagnement serein"
             ],
-            image: "/service-massage.jpg",
+            image: "img2.jpg",
             categorie: "Massage",
-            pourQui: "Bébé",
-            dureeMinutes: 45
+            pourQui: "Maman",
+            dureeMinutes: 60,
+            reservationId: "massfe"
         },
         {
             id: 3,
-            nom: "Atelier Éveil Sensoriel",
-            description: "Activités sensorielles adaptées pour stimuler le développement moteur et cognitif.",
-            fullDescription: "Nos ateliers d'éveil sensoriel sont conçus pour accompagner le développement de votre bébé de manière ludique et stimulante. À travers des activités adaptées à son âge, nous sollicitons tous ses sens : toucher, vue, ouïe, odorat. Matériel Montessori, jeux sensoriels, musique douce, et accompagnement bienveillant pour favoriser l'éveil et l'autonomie.",
+            nom: "Massage Postnatal & Harmonisant",
+            description: "Après la naissance, retrouvez douceur et recentrage.",
+            fullDescription: "Après la naissance, retrouvez douceur et recentrage grâce à un massage enveloppant qui apaise les zones fragilisées, relance l'énergie et réharmonise corps et esprit.",
             duree: "60 min",
-            age: "3-12 mois",
+            age: "Post-accouchement",
             benefices: [
-                "Stimulation du développement cognitif",
-                "Éveil des sens et découverte",
-                "Développement de la motricité fine",
-                "Socialisation et interaction",
-                "Confiance en soi et autonomie"
+                "Apaisement des zones fragilisées",
+                "Relance de l'énergie",
+                "Réharmonisation corps et esprit",
+                "Douceur et recentrage"
             ],
-            image: "/service-eveil.jpg",
-            categorie: "Atelier",
-            pourQui: "Bébé",
-            dureeMinutes: 60
+            image: "massage.jpeg",
+            categorie: "Massage",
+            pourQui: "Maman",
+            dureeMinutes: 60,
+            reservationId: "masshed"
         },
         {
             id: 4,
-            nom: "Spa Complet Parent-Bébé",
-            description: "Une expérience complète alliant bain relaxant et massage personnalisé.",
-            fullDescription: "Notre formule spa complète est l'expérience ultime pour votre bébé. Elle combine les bienfaits de l'hydrothérapie et du massage dans une séance d'une heure et demie. Votre bébé profite d'abord d'un bain relaxant dans notre bassin équipé, puis d'un massage adapté à ses besoins. Un moment privilégié de détente et de complicité dans un cadre chaleureux et sécurisant.",
-            duree: "90 min",
-            age: "1-12 mois",
+            nom: "Massage Métamorphique",
+            description: "Un toucher léger des pieds, des mains et de la tête.",
+            fullDescription: "Un toucher léger des pieds, des mains et de la tête, doux et profondément relaxant, qui favorise le lâcher-prise et la libération émotionnelle en douceur.",
+            duree: "45 min",
+            age: "Adulte",
             benefices: [
-                "Relaxation complète corps et esprit",
-                "Expérience sensorielle enrichie",
-                "Meilleure qualité de sommeil",
-                "Renforcement du système immunitaire",
-                "Moment unique parent-bébé"
+                "Lâcher-prise",
+                "Libération émotionnelle",
+                "Relaxation profonde",
+                "Douceur et apaisement"
             ],
-            image: "/service-spa.jpg",
-            categorie: "Formule Premium",
-            pourQui: "Parent-Bébé",
-            dureeMinutes: 90
+            image: "imgServiceMaman4.jpg",
+            categorie: "Bien-être",
+            pourQui: "Maman",
+            dureeMinutes: 45,
+            reservationId: "refm"
         },
+        // Services Bébé
         {
             id: 5,
-            nom: "Séance Sommeil & Relaxation",
-            description: "Techniques douces pour favoriser l'endormissement et un sommeil réparateur.",
-            fullDescription: "Cette séance spéciale sommeil combine massage relaxant, techniques de respiration, et création d'un rituel d'endormissement. Idéale pour les bébés ayant des difficultés d'endormissement ou un sommeil agité. Nous vous transmettons également des conseils pratiques et des techniques à reproduire à la maison pour installer une routine de sommeil apaisante.",
-            duree: "50 min",
-            age: "1-12 mois",
+            nom: "Réflexologie Plantaire Pédiatrique",
+            description: "Une réflexologie douce et adaptée aux tout-petits.",
+            fullDescription: "Une réflexologie douce et adaptée aux tout-petits pour apaiser les petits maux (coliques, sommeil agité, poussées dentaires) et favoriser une détente naturelle, tout en renforçant le lien parent-bébé.",
+            duree: "30 min",
+            age: "0-12 mois",
             benefices: [
-                "Facilite l'endormissement",
-                "Améliore la qualité du sommeil",
-                "Réduit les réveils nocturnes",
-                "Apaise l'anxiété de séparation",
-                "Crée un rituel apaisant"
+                "Apaisement des coliques",
+                "Amélioration du sommeil",
+                "Soulagement des poussées dentaires",
+                "Renforcement du lien parent-bébé"
             ],
-            image: "/service-sommeil.jpg",
-            categorie: "Bien-être",
+            image: "imgServiceBebe1.jpg",
+            categorie: "Réflexologie",
             pourQui: "Bébé",
-            dureeMinutes: 50
+            dureeMinutes: 30,
+            reservationId: "refb"
         },
         {
             id: 6,
-            nom: "Réflexologie Plantaire Bébé",
-            description: "Stimulation douce des points réflexes pour apaiser et rééquilibrer.",
-            fullDescription: "La réflexologie plantaire pour bébé est une approche douce et naturelle qui stimule les zones réflexes situées sous les pieds. Cette technique millénaire adaptée aux tout-petits permet de soulager de nombreux maux du quotidien : coliques, constipation, poussées dentaires, troubles du sommeil. Nos praticiennes certifiées utilisent des pressions légères et adaptées à la sensibilité de votre bébé.",
-            duree: "30 min",
-            age: "1-12 mois",
+            nom: "Bain enveloppant emmailloté",
+            description: "Un véritable cocon de douceur, réalisable dès 14 jours.",
+            fullDescription: "Un véritable cocon de douceur, réalisable dès 14 jours et jusqu'aux 2 mois et demi. Ce bain aide votre bébé à retrouver des sensations proches de la vie in utero et l'accompagne dans les grands changements de la naissance. Apaisant et profondément relaxant, il offre un moment de bien-être partagé avec les parents. La séance se prolonge par un atelier massage bébé pour continuer la détente et soulager les petits maux (coliques, gaz, constipation, etc.), avec des gestes simples que vous pourrez reproduire à la maison.",
+            duree: "45 min",
+            age: "14 jours - 2,5 mois",
             benefices: [
-                "Soulagement des coliques et tensions",
-                "Amélioration du transit intestinal",
-                "Apaisement lors des poussées dentaires",
-                "Renforcement du système immunitaire",
-                "Détente profonde et bien-être"
+                "Sensations in utero",
+                "Accompagnement de la naissance",
+                "Relaxation profonde",
+                "Atelier massage inclus",
+                "Soulagement des petits maux"
             ],
-            image: "/service-reflexologie.jpg",
-            categorie: "Thérapie douce",
+            image: "imgServiceBebe2.jpg",
+            categorie: "Hydrothérapie",
             pourQui: "Bébé",
-            dureeMinutes: 30
+            dureeMinutes: 45,
+            reservationId: "bainenveloppe"
         },
         {
             id: 7,
-            nom: "Massage Postnatal Maman",
-            description: "Un moment de détente et de récupération pour les jeunes mamans après l'accouchement.",
-            fullDescription: "Le massage postnatal est spécialement conçu pour accompagner les mamans dans leur récupération après l'accouchement. Ce soin doux et enveloppant aide à soulager les tensions musculaires, favorise la détente profonde et accompagne le corps dans sa transformation. Nos techniques adaptées prennent en compte les besoins spécifiques du post-partum : drainage lymphatique léger, détente du dos et des épaules, soin du ventre en douceur.",
-            duree: "60 min",
-            age: "Post-accouchement",
+            nom: "Hydrothérapie Bébé",
+            description: "Dès 3 mois, le bain devient un éveil aquatique.",
+            fullDescription: "Dès 3 mois, le bain devient un éveil aquatique plein de bénéfices. Dans une eau chaude, avec jets, bulles et petits jeux, votre enfant explore librement, se détend et gagne en confiance. L'hydrothérapie aide à apaiser coliques, reflux ou constipation, favorise l'endormissement, le relâchement musculaire et peut soulager l'inconfort lié aux poussées dentaires.",
+            duree: "30 min",
+            age: "3-12 mois",
             benefices: [
-                "Soulagement des tensions musculaires",
-                "Amélioration de la récupération physique",
-                "Moment de détente et de reconnexion à soi",
-                "Réduction du stress et de la fatigue",
-                "Accompagnement de la transformation du corps"
+                "Éveil aquatique",
+                "Apaisement coliques/reflux",
+                "Favorise l'endormissement",
+                "Relâchement musculaire",
+                "Soulagement poussées dentaires"
             ],
-            image: "/service-maman-massage.jpg",
-            categorie: "Massage",
-            pourQui: "Maman",
-            dureeMinutes: 60
+            image: "babyhydro.jpg",
+            categorie: "Hydrothérapie",
+            pourQui: "Bébé",
+            dureeMinutes: 30,
+            reservationId: "hydrob"
         },
         {
             id: 8,
-            nom: "Atelier Allaitement & Bien-être",
-            description: "Conseils personnalisés et soutien pour un allaitement serein et épanouissant.",
-            fullDescription: "Cet atelier individuel ou en petit groupe offre un espace bienveillant pour échanger sur l'allaitement maternel. Caroline, sage-femme expérimentée, vous accompagne dans vos questionnements : mise au sein, positions, gestion des montées de lait, sevrage... Chaque séance est adaptée à votre situation et à vos besoins. Un moment privilégié pour recevoir des conseils pratiques, être rassurée et prendre confiance en vous.",
-            duree: "45 min",
-            age: "Post-accouchement",
+            nom: "Massage Bébé",
+            description: "Un massage tout en douceur, adapté à l'âge de votre enfant.",
+            fullDescription: "Un massage tout en douceur, adapté à l'âge de votre enfant, pour prolonger la détente, apaiser les inconforts digestifs (coliques, gaz, constipation) et soutenir un sommeil plus serein. Nous vous transmettons des gestes simples et sécurisants afin que vous puissiez les reproduire facilement à la maison.",
+            duree: "30 min",
+            age: "0-12 mois",
             benefices: [
-                "Conseils personnalisés par une sage-femme",
-                "Soutien dans les difficultés d'allaitement",
-                "Techniques de mise au sein optimales",
-                "Gestion du sevrage en douceur",
-                "Espace d'écoute sans jugement"
+                "Apaisement des inconforts digestifs",
+                "Sommeil plus serein",
+                "Gestes à reproduire à la maison",
+                "Détente et bien-être"
             ],
-            image: "/service-allaitement.jpg",
-            categorie: "Atelier",
-            pourQui: "Maman",
-            dureeMinutes: 45
+            image: "imgServiceBebe3.jpg",
+            categorie: "Massage",
+            pourQui: "Bébé",
+            dureeMinutes: 30,
+            reservationId: "massageb"
         },
         {
             id: 9,
-            nom: "Cercle de Parole Mamans",
-            description: "Un espace d'échange et de partage entre jeunes mamans dans un cadre bienveillant.",
-            fullDescription: "Le cercle de parole est un moment précieux où les mamans peuvent se retrouver, partager leurs joies, leurs doutes et leurs questionnements. Dans un cadre chaleureux et sans jugement, accompagnées par Caroline, vous pourrez échanger sur les défis du quotidien, la fatigue, les émotions du post-partum, l'organisation familiale... Un temps pour soi, pour se sentir moins seule et créer du lien avec d'autres mamans qui vivent la même aventure.",
-            duree: "90 min",
-            age: "Post-accouchement",
+            nom: "Baby Yoga",
+            description: "Ateliers d'une heure par tranche d'âge.",
+            fullDescription: "Ateliers d'une heure par tranche d'âge (1 à 5 mois et 6 à 12 mois) pour accompagner et guider votre bébé dans différentes postures. Le baby yoga soutient le développement de la motricité et la découverte du schéma corporel tout en respectant les limites de votre enfant. Il aide à la détente, soulage les petits maux et développe le lien d'attachement parent-enfant. Chaque séance comporte trois temps : un temps de yoga, un temps de massage et un temps d'éveil sensoriel. Les dates des ateliers sont publiées sur notre page Facebook.",
+            duree: "60 min",
+            age: "1-12 mois",
             benefices: [
-                "Partage d'expériences entre mamans",
-                "Sentiment d'appartenance et soutien",
-                "Espace d'écoute bienveillant",
-                "Conseils pratiques du quotidien",
-                "Réduction du sentiment de solitude"
+                "Développement de la motricité",
+                "Découverte du schéma corporel",
+                "Détente et soulagement",
+                "Renforcement du lien parent-enfant",
+                "3 temps : yoga, massage, éveil"
             ],
-            image: "/service-cercle-mamans.jpg",
+            image: "babyyoga.jpg",
             categorie: "Atelier",
-            pourQui: "Maman",
-            dureeMinutes: 90
+            pourQui: "Bébé",
+            dureeMinutes: 60,
+            reservationId: "babyyoga"
         }
     ];
 
@@ -365,7 +371,7 @@ export default function Services() {
                                                 </label>
                                             </div>
                                             <div className="flex flex-wrap gap-4">
-                                                {['Tous', 'Bébé', 'Maman', 'Parent-Bébé'].map((option) => {
+                                                {['Tous', 'Bébé', 'Maman'].map((option) => {
                                                     const count = services.filter(s => option === 'Tous' || s.pourQui === option).length;
                                                     return (
                                                         <button
@@ -409,7 +415,7 @@ export default function Services() {
                                                 </label>
                                             </div>
                                             <div className="flex flex-wrap gap-4">
-                                                {['Toutes', 'Hydrothérapie', 'Massage', 'Atelier', 'Formule Premium', 'Bien-être', 'Thérapie douce'].map((option) => {
+                                                {['Toutes', 'Hydrothérapie', 'Massage', 'Atelier', 'Bien-être', 'Réflexologie'].map((option) => {
                                                     const count = services.filter(s => option === 'Toutes' || s.categorie === option).length;
                                                     return (
                                                         <button
@@ -566,12 +572,10 @@ export default function Services() {
                                             <div className={`px-3 py-1.5 backdrop-blur-sm border ${
                                                 service.pourQui === 'Maman'
                                                     ? 'bg-[#c5a591]/95 border-[#c5a591]/20'
-                                                    : service.pourQui === 'Parent-Bébé'
-                                                        ? 'bg-[#d4b5a0]/95 border-[#d4b5a0]/20'
-                                                        : 'bg-white/95 border-[#d4b5a0]/20'
+                                                    : 'bg-white/95 border-[#d4b5a0]/20'
                                             }`}>
                                             <span className={`font-['Karla'] text-xs tracking-[0.1em] uppercase ${
-                                                service.pourQui === 'Maman' || service.pourQui === 'Parent-Bébé'
+                                                service.pourQui === 'Maman'
                                                     ? 'text-white'
                                                     : 'text-[#5a524d]'
                                             }`}>
@@ -655,7 +659,7 @@ export default function Services() {
                                 Notre équipe se tient à votre disposition pour vous conseiller et vous accompagner dans le choix du soin idéal pour votre bébé.
                             </p>
                             <Link
-                                href="/contact"
+                                href="/#contact"
                                 className="inline-flex items-center gap-3 px-10 py-4 bg-[#d4b5a0] text-white font-['Karla'] text-sm tracking-[0.08em] uppercase transition-all duration-500 hover:bg-[#c5a591] hover:shadow-2xl hover:shadow-[#d4b5a0]/30 hover:-translate-y-1"
                             >
                                 Nous Contacter
@@ -667,7 +671,124 @@ export default function Services() {
                     </div>
                 </div>
 
-                {/* Modal - Reste du code inchangé...*/}
+                {/* Modal */}
+                {selectedService && (
+                    <div
+                        className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#2a2520]/80 backdrop-blur-sm"
+                        onClick={closeModal}
+                    >
+                        <div
+                            className="relative bg-white max-w-4xl w-full max-h-[90vh] overflow-y-auto shadow-2xl"
+                            onClick={(e) => e.stopPropagation()}
+                            style={{
+                                animation: 'modalSlideIn 0.4s ease forwards'
+                            }}
+                        >
+                            {/* Close button */}
+                            <button
+                                onClick={closeModal}
+                                className="absolute top-6 right-6 z-10 w-10 h-10 flex items-center justify-center bg-white/90 hover:bg-[#d4b5a0] text-[#2a2520] hover:text-white transition-all duration-300 shadow-lg"
+                                aria-label="Fermer"
+                            >
+                                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                                </svg>
+                            </button>
+
+                            {/* Image */}
+                            <div className="relative h-80 overflow-hidden">
+                                <img
+                                    src={selectedService.image}
+                                    alt={selectedService.nom}
+                                    className="w-full h-full object-cover"
+                                />
+                                <div className="absolute inset-0 bg-gradient-to-t from-[#2a2520]/60 to-transparent" />
+
+                                {/* Title overlay */}
+                                <div className="absolute bottom-0 left-0 right-0 p-8">
+                                    <div className="flex items-center gap-3 mb-3">
+                                        <div className={`px-3 py-1.5 backdrop-blur-sm border ${
+                                            selectedService.pourQui === 'Maman'
+                                                ? 'bg-[#c5a591]/95 border-[#c5a591]/20 text-white'
+                                                : 'bg-white/95 border-[#d4b5a0]/20 text-[#d4b5a0]'
+                                        }`}>
+                                            <span className="font-['Karla'] text-xs tracking-[0.1em] uppercase">
+                                                {selectedService.categorie}
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <h3 className="font-['Libre_Caslon_Text'] text-4xl font-normal text-white">
+                                        {selectedService.nom}
+                                    </h3>
+                                </div>
+                            </div>
+
+                            {/* Content */}
+                            <div className="p-8 lg:p-12">
+                                {/* Info tags */}
+                                <div className="flex flex-wrap gap-3 mb-8 pb-8 border-b-2 border-[#f5ede7]">
+                                    <div className="flex items-center gap-2 px-4 py-2 bg-[#f8f6f3]">
+                                        <svg className="w-5 h-5 text-[#d4b5a0]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                        </svg>
+                                        <span className="font-['Karla'] text-sm text-[#2a2520]">{selectedService.duree}</span>
+                                    </div>
+                                    <div className="flex items-center gap-2 px-4 py-2 bg-[#f8f6f3]">
+                                        <svg className="w-5 h-5 text-[#d4b5a0]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                                        </svg>
+                                        <span className="font-['Karla'] text-sm text-[#2a2520]">{selectedService.age}</span>
+                                    </div>
+                                </div>
+
+                                {/* Description */}
+                                <div className="mb-8">
+                                    <p className="font-['Karla'] text-base lg:text-lg font-light text-[#5a524d] leading-relaxed">
+                                        {selectedService.fullDescription}
+                                    </p>
+                                </div>
+
+                                {/* Benefices */}
+                                <div className="mb-10">
+                                    <h4 className="font-['Libre_Caslon_Text'] text-2xl font-normal text-[#2a2520] mb-6">
+                                        Bénéfices
+                                    </h4>
+                                    <div className="grid md:grid-cols-2 gap-4">
+                                        {selectedService.benefices.map((benefice, index) => (
+                                            <div key={index} className="flex items-start gap-3">
+                                                <div className="w-6 h-6 flex items-center justify-center bg-[#d4b5a0]/10 rounded-full flex-shrink-0 mt-0.5">
+                                                    <svg className="w-3 h-3 text-[#d4b5a0]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
+                                                    </svg>
+                                                </div>
+                                                <span className="font-['Karla'] text-sm text-[#5a524d]">{benefice}</span>
+                                            </div>
+                                        ))}
+                                    </div>
+                                </div>
+
+                                {/* CTA */}
+                                <div className="flex flex-col sm:flex-row gap-4">
+                                    <Link
+                                        href={`/?service=${selectedService.reservationId}#contact`}
+                                        className="flex-1 flex items-center justify-center gap-3 px-8 py-4 bg-[#d4b5a0] text-white font-['Karla'] text-sm tracking-[0.08em] uppercase transition-all duration-300 hover:bg-[#c5a591] hover:shadow-xl"
+                                    >
+                                        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                                        </svg>
+                                        Réserver ce soin
+                                    </Link>
+                                    <button
+                                        onClick={closeModal}
+                                        className="flex-1 flex items-center justify-center gap-3 px-8 py-4 bg-[#f8f6f3] text-[#2a2520] font-['Karla'] text-sm tracking-[0.08em] uppercase transition-all duration-300 hover:bg-[#f3ede7]"
+                                    >
+                                        Continuer à explorer
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                )}
             </section>
 
             <style jsx>{`
@@ -699,6 +820,17 @@ export default function Services() {
                     to {
                         opacity: 1;
                         transform: translateY(0);
+                    }
+                }
+
+                @keyframes modalSlideIn {
+                    from {
+                        opacity: 0;
+                        transform: scale(0.95) translateY(20px);
+                    }
+                    to {
+                        opacity: 1;
+                        transform: scale(1) translateY(0);
                     }
                 }
             `}</style>

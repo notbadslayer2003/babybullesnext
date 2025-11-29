@@ -154,25 +154,49 @@ export default function Footer() {
 
                     {/* Bottom bar */}
                     <div className="pt-8 border-t border-white/10">
-                        <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+                        <div className="flex flex-col md:flex-row justify-between items-center gap-6">
                             <p className="font-['Karla'] text-sm text-white/50">
                                 © {new Date().getFullYear()} Baby Bulles. Tous droits réservés.
                             </p>
 
-                            <div className="flex items-center gap-6">
+                            <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2">
                                 <Link
-                                    href="/mentions-legales"
+                                    href="/legal"
                                     className="font-['Karla'] text-sm text-white/50 hover:text-white/80 transition-colors duration-300"
                                 >
                                     Mentions légales
                                 </Link>
                                 <Link
-                                    href="/politique-confidentialite"
+                                    href="/privacy"
                                     className="font-['Karla'] text-sm text-white/50 hover:text-white/80 transition-colors duration-300"
                                 >
                                     Politique de confidentialité
                                 </Link>
+                                <Link
+                                    href="/terms"
+                                    className="font-['Karla'] text-sm text-white/50 hover:text-white/80 transition-colors duration-300"
+                                >
+                                    CGV
+                                </Link>
+                                <Link
+                                    href="/cookies"
+                                    className="font-['Karla'] text-sm text-white/50 hover:text-white/80 transition-colors duration-300"
+                                >
+                                    Cookies
+                                </Link>
                             </div>
+                        </div>
+
+                        {/* Made by */}
+                        <div className="mt-6 pt-6 border-t border-white/5 text-center">
+                            <a
+                                href="https://twostack.be"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="font-['Karla'] text-xs text-white/40 hover:text-[#d4b5a0] transition-colors duration-300"
+                            >
+                                Made by TwoStack.
+                            </a>
                         </div>
                     </div>
                 </div>
